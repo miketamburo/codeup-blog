@@ -28,12 +28,12 @@
             <!-- End of navbar header ===========-->
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li><a href="portfolio">Portfolio</a></li>
-                <li><a href="portfolio#skills">Skills</a></li>
-                <li><a href="resume">Resum&#233</a></li>
-                <li><a href="portfolio#experience">Experience</a></li>
-                <li><a href="blog">Blog</a></li>
-                <li><a href="portfolio#contact">Contact</a></li>
+                <li><a href="{{{action('HomeController@showPortfolio')}}}">Portfolio</a></li>
+                <li><a href="{{{action('HomeController@showPortfolio')}}}#skills">Skills</a></li>
+                <li><a href="{{{action('HomeController@showResume')}}}">Resum&#233</a></li>
+                <li><a href="{{{action('HomeController@showPortfolio')}}}#experience">Experience</a></li>
+                <li><a href="{{{action('HomeController@showBlog')}}}">Blog</a></li>
+                <li><a href="{{{action('HomeController@showPortfolio')}}}#contact">Contact</a></li>
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
