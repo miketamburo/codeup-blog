@@ -39,4 +39,15 @@ class HomeController extends BaseController {
 		return View::make('blog');
 	}
 
+	public function showRollDiceGuess($guess) {	
+		$rand = rand(1, 6);
+		if ($rand == $guess){
+			$answer = 'a match.';
+		} else {
+			$answer = 'not a match.';
+		}
+		$data = array('rand'=>$rand, 'guess'=>$guess, 'answer'=>$answer);
+    	return View::make('roll-dice')->with($data);    
+	}
+
 }

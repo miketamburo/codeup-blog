@@ -20,16 +20,7 @@ Route::get('/rolldice', function()
     return View::make('roll-dice')->with('rand', $rand);   
 });
 
-Route::get('/rolldice/{guess}', function($guess)
-{	$rand = rand(1, 6);
-	if ($rand == $guess){
-		$answer = 'a match.';
-	} else {
-		$answer = 'not a match.';
-	}
-	$data = array('rand'=>$rand, 'guess'=>$guess, 'answer'=>$answer);
-    return View::make('roll-dice')->with($data);    
-});
+Route::get('/rolldice/{guess}', 'HomeController@showRollDiceGuess');
 
 Route::get('/resume', 'HomeController@showResume');
 
