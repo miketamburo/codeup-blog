@@ -75,12 +75,12 @@
     @yield('content')
 
     <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p><a href="#">Back to top</a></p>
         <p>&copy; 2014 Michael Tamburo All rights reserved.</p>
     </footer>
     @yield('bottomscript')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="css/bootstrap-3.1.1/js/bootstrap.min.js"></script>
-    <script src="css/bootstrap-3.1.1/docs/assets/js/docs.min.js"></script>
+    <script src="/css/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+    <script src="/css/bootstrap-3.1.1/docs/assets/js/docs.min.js"></script>
 </body>
 </html>
