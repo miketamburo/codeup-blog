@@ -1,0 +1,35 @@
+/* 
+this content is stored in a file named "css/resume_site.css" 
+in a directory named "css" in the web root 
+*/
+.oxygen{
+	font-family: 'Oxygen', sans-serif;
+}
+
+.arizona {
+	font-family: 'Arizonia', cursive;
+	font-size: 45px;
+	padding-top: 20px;
+}
+
+.padding{ 
+	padding-top: 40px;
+}
+
+.whiteletters{
+	color: #FFF;
+}
+
+#bottommargin{
+	margin-bottom: 0px;
+}
+
+#codeup{
+	color: #0F0;
+}
+
+#fancy{
+    color: #FFF;
+}
+
+

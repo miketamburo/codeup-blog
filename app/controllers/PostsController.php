@@ -8,8 +8,29 @@ class PostsController extends \BaseController {
 	 * @return Response
 	 */
 	public function index()
-	{
-		return "This is the index action";
+	{	//examples
+		// var_dump(Input::all());
+		// var_dump(Input::get('name'));
+		// var_dump(Input::get('name', 'Default'));
+		// $name = Input::get('name');
+		// $test = Input::get('test');
+
+		// $data = array(
+		// 		'name' => $name,
+		// 		'test' => $test,
+		// );
+		// return View::make(someThing)->with($data);
+		// if there is a checkbox; how do you get values
+		//var_dump(Input::has('test'));
+		
+
+		Log::info('This is some useful information.');
+
+		Log::warning('Something could be going wrong.');
+
+		Log::error('Something is really going wrong.');
+
+		return "Show a list of all posts.";
 	}
 
 	/**
@@ -19,7 +40,7 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return "This is the create action";
+		return View::make('posts.create');
 	}
 
 	/**
@@ -29,7 +50,8 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		return "This is the store action";
+		Log::info(Input::all());
+		return Redirect::back()->withInput();
 	}
 
 	/**

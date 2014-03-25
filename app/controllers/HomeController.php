@@ -21,12 +21,6 @@ class HomeController extends BaseController {
 		return Redirect::action('HomeController@sayHello', array('Codeup'));
 	}
 
-	public function sayHello ($name)
-	{
-		$data = array('name' => $name);
-		return View::make('my-first-view')->with($data);
-	}
-
 	public function showResume(){
 		return View::make('resume');
 	}
@@ -39,15 +33,6 @@ class HomeController extends BaseController {
 		return View::make('blog');
 	}
 
-	public function showRollDiceGuess($guess) {	
-		$rand = rand(1, 6);
-		if ($rand == $guess){
-			$answer = 'a match.';
-		} else {
-			$answer = 'not a match.';
-		}
-		$data = array('rand'=>$rand, 'guess'=>$guess, 'answer'=>$answer);
-    	return View::make('roll-dice')->with($data);    
-	}
+
 
 }

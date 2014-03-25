@@ -13,19 +13,10 @@
 
 Route::get('/', 'HomeController@showWelcome'); 
 
-Route::get('/sayhello/{name}', 'HomeController@sayHello');
-
-Route::get('/rolldice', function()
-{	$rand = rand(1, 6);
-    return View::make('roll-dice')->with('rand', $rand);   
-});
-
-Route::resource('posts', 'PostsController');
-
-Route::get('/rolldice/{guess}', 'HomeController@showRollDiceGuess');
-
 Route::get('/resume', 'HomeController@showResume');
 
 Route::get('/portfolio', 'HomeController@showPortfolio');
 
 Route::get('/blog', 'HomeController@showBlog');
+
+Route::resource('posts', 'PostsController');
