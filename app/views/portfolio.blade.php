@@ -10,7 +10,7 @@
 
 @section('topscript')
     <link href="/css/bootstrap-3.1.1/docs/examples/carousel/carousel.css" rel="stylesheet">
-	<link href="/css/portfolio_site.css" rel="stylesheet"> 
+	  <link href="/css/portfolio_site.css" rel="stylesheet"> 
 @stop
 
 @section('content')

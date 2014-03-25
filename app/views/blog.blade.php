@@ -14,10 +14,12 @@
 @stop
 
 @section('content')
-<br>
-<br>
-<br>
-<div class="container">
+<style>
+#main-content {
+    margin-top: 60px;
+}
+</style>
+<div class="container" id="main-content">
     <div class="container">
         <nav class="blog-nav">
             <a class="blog-nav-item active" href="#">Home</a>
