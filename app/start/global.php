@@ -51,10 +51,6 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
-App::missing(function($exception)
-{
-    return Response::view('errors.missing', array(), 404);
-});
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
@@ -83,3 +79,18 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+/*
+|--------------------------------------------------------------------------
+| Custom Redirects
+|--------------------------------------------------------------------------
+|
+| custom 404 message entered
+| reference views/errors directory for file missing.blade.php
+| 
+|
+*/
+App::missing(function($exception)
+{
+    return Response::view('errors.missing', array(), 404);
+});
