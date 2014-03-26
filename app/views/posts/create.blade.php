@@ -1,10 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-<br>
-<br>
-<br>
-<br>
+<style>
+	h1 {
+		margin-top: 60px;
+	}
+</style>
 <div class="blog-post">
 	<h2> Create a new post </h2>
 	<form class="form-horizontal" role="form" action="{{{ action('PostsController@store') }}}" method="POST">

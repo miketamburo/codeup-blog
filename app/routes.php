@@ -20,3 +20,11 @@ Route::get('/portfolio', 'HomeController@showPortfolio');
 Route::get('/blog', 'HomeController@showBlog');
 
 Route::resource('posts', 'PostsController');
+
+Route::get('orm-test', function () {
+	$posts = new Post();
+	$posts->save();
+	return $posts;
+	
+});
+

@@ -7,5 +7,8 @@
 	}
 	</style>
 	
-	<h1>Oops, page not found!</h1>
+	<h1>Single post:</h1>
+	<h2>{{{$title}}}</h2>
+	<h2><{{{$body}}}</h2>
 @stop
+
