@@ -4,6 +4,7 @@
 <style>
 	#mainContent {
 		margin-top: 70px;
+		margin-left: 15px;
 	}
 </style>
 <div class="blog-post" id="mainContent">
@@ -23,6 +24,8 @@
 	    </div>
 	  </div>
 	 
+	  <p></p>
+
 	  <div class="form-group">
 	    <div class="col-sm-offset-2 col-sm-10">
 	      <button type="submit" class="btn btn-primary">Create Post</button>

@@ -75,8 +75,8 @@
     @yield('content')
 
     <footer>
-        <p><a href="#">Back to top</a></p>
-        <p>&copy; 2014 Michael Tamburo All rights reserved.</p>
+        <p><a href="#">&nbsp;Back to top</a></p>
+        <p>&nbsp;&copy; 2014 Michael Tamburo All rights reserved.</p>
     </footer>
     @yield('bottomscript')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

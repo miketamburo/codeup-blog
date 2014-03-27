@@ -17,6 +17,7 @@
 <style>
 #main-content {
     margin-top: 70px;
+    margin-left: 10px;
 }
 </style>
 <div class="container" id="main-content">
