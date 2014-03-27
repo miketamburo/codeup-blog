@@ -3,9 +3,15 @@
 @section('content')
 <style>
 	#mainContent {
-		margin-top: 70px;
+		margin-top: 30px;
 		margin-left: 25px;
 	}
+
+	h2 {
+		margin-top:  70px;
+		margin-left: 25px;
+	}
+
 </style>
 
 @if (empty($posts->id))
@@ -45,13 +51,20 @@
 
 	  <div class="form-group">
 	    <div class="col-sm-offset-2 col-sm-10">
-	      <button type="submit" class="btn btn-primary">Save Changes</button>
+	    @if (empty($posts->id))
+	    	<button type="submit" class="btn btn-primary">Create Post</button>
+	    @else 	
+	      	<button type="submit" class="btn btn-primary">Save Changes</button>
+	    @endif
 	    </div>
 	  </div>
+
+
 	{{ Form::close() }}
 	<!-- </form> -->
-	<button type="submit" class="btn btn-primary" href="{{{ action ('PostsController@index')}}}">Return to Index</button>
 </div>
-
+<div class="col-sm-offset-2 col-sm-10">
+	<a href="{{{ action ('PostsController@index')}}}" type="button" class="btn btn-primary">Return to Index</a>
+</div>
 @stop
 

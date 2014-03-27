@@ -20,7 +20,7 @@
 	@endforeach
 	
 	<div class="col-sm-offset-2 col-sm-10">
-	    <a href="{{{ action('PostsController@create') }}}"><button type="submit" class="btn btn-primary">Create Post</button></a>
+	    <a href="{{{ action('PostsController@create') }}}" type="button" class="btn btn-primary">Create Post</a>
 	</div>
 	
 @stop

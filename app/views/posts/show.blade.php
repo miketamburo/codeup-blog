@@ -10,13 +10,13 @@
 
 	<div class="blog-post" id="mainContent">
 	    <h2 class="blog-post-title">{{{$posts->title}}}</h2>
-	    <p class="blog-post-meta">{{{$posts->created_at}}}></p>
+	    <p class="blog-post-meta">{{{$posts->created_at}}}</p>
 
 	    <p>{{{$posts->body}}}</p> 
 
-	    <h4><a href="{{{ action ('PostsController@edit', $posts->id)}}}">Edit this post</a></h4>
-
-	    <h4><a href="{{{ action ('PostsController@index')}}}">Return to posts listings</a></h4>   
+	    <a href="{{{ action ('PostsController@edit', $posts->id)}}}" type="button" class="btn btn-primary">Edit this post</a>
+	    
+	    <a href="{{{ action ('PostsController@index')}}}" type="button" class="btn btn-primary">Return to Index</a>  
 	    
 	</div><!-- /.blog-post -->
 

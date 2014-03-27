@@ -20,8 +20,8 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('posts.create');
-		//return View::make('posts.create-edit')->with('posts', new Post());
+		return View::make('posts.create-edit');
+		
 	}
 
 	/**
@@ -72,7 +72,7 @@ class PostsController extends \BaseController {
 	public function edit($id)
 	{
 		$post = Post::findOrFail($id);
-		return View::make('posts.edit')->with(array('posts' => $post));
+		return View::make('posts.create-edit')->with(array('posts' => $post));
 	}
 
 	/**
