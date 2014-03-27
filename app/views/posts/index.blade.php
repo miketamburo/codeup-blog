@@ -9,10 +9,10 @@
 
 	@foreach ($posts as $posts)
 	<div class="blog-post" id="mainContent">
-	    <h2 class="blog-post-title">New feature</h2>
-	    <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
+	    <h2 class="blog-post-title">{{{$posts->title}}}</h2>
+	    <p class="blog-post-meta">{{{$posts->created_at}}}<a href="#"></a></p>
 
-	    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>    
+	    <p>{{{$posts->body}}}</p>    
 	    
 	</div><!-- /.blog-post -->
 	@endforeach

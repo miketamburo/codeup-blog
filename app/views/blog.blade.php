@@ -16,7 +16,7 @@
 @section('content')
 <style>
 #main-content {
-    margin-top: 60px;
+    margin-top: 70px;
 }
 </style>
 <div class="container" id="main-content">

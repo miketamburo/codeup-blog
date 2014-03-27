@@ -1,14 +1,20 @@
 @extends('layouts.master')
 
 @section('content')
-	<style>
-	h1 {
-		margin-top: 60px;
-	}
-	</style>
-	
-	<h1>Single post:</h1>
-	<h2>{{{$title}}}</h2>
-	<h2><{{{$body}}}</h2>
-@stop
+<style>
+#mainContent {
+	margin-top: 60px;
+}
+</style>
 
+
+	<div class="blog-post" id="mainContent">
+	    <h2 class="blog-post-title">{{{$posts->title}}}</h2>
+	    <p class="blog-post-meta">{{{$posts->created_at}}}<a href="#"></a></p>
+
+	    <p>{{{$posts->body}}}</p>    
+	    
+	</div><!-- /.blog-post -->
+
+
+@stop

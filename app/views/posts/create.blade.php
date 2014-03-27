@@ -2,11 +2,11 @@
 
 @section('content')
 <style>
-	h1 {
-		margin-top: 60px;
+	#mainContent {
+		margin-top: 70px;
 	}
 </style>
-<div class="blog-post">
+<div class="blog-post" id="mainContent">
 	<h2> Create a new post </h2>
 	<form class="form-horizontal" role="form" action="{{{ action('PostsController@store') }}}" method="POST">
 	  <div class="form-group">
@@ -25,7 +25,7 @@
 	 
 	  <div class="form-group">
 	    <div class="col-sm-offset-2 col-sm-10">
-	      <button type="submit" class="btn btn-default">Create Post</button>
+	      <button type="submit" class="btn btn-primary">Create Post</button>
 	    </div>
 	  </div>
 	</form>

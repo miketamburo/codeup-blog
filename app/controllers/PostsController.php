@@ -30,11 +30,17 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		
-
-
 		Log::info(Input::all());
-		return Redirect::back()->withInput();
+
+		$post = new Post();
+
+		$post->title = Input::get('title');
+		$post->body = Input::get('body');
+		$post->save();
+
+		return Redirect::action('PostsController@index');
+
+		//return Redirect::back()->withInput();
 	}
 
 	/**
@@ -46,15 +52,7 @@ class PostsController extends \BaseController {
 	public function show($id)
 	{
 		$post = Post::find($id);
-		$title = Post::get('title');
-		$body = Post::get('body');
-
-		$data = array(
-			'title' => $title,
-			'body' => $body
-		);
-		
-		return View::make('posts.show')->with($data);
+		return View::make('posts.show')->with('posts', $post);
 	}
 
 	/**
