@@ -3,7 +3,8 @@
 @section('content')
 <style>
 #mainContent {
-	margin-top: 60px;
+	margin-top: 70px;
+	margin-left: 25px;
 }
 
 </style>

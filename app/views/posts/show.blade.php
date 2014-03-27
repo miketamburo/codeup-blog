@@ -3,7 +3,8 @@
 @section('content')
 <style>
 #mainContent {
-	margin-top: 60px;
+	margin-top: 70px;
+	margin-left: 25px;
 }
 </style>
 
@@ -13,7 +14,9 @@
 
 	    <p>{{{$posts->body}}}</p> 
 
-	    <h3><a href="{{{ action ('PostsController@index')}}}">Return to posts listings</a></h3>   
+	    <h4><a href="{{{ action ('PostsController@edit', $posts->id)}}}">Edit this post</a></h4>
+
+	    <h4><a href="{{{ action ('PostsController@index')}}}">Return to posts listings</a></h4>   
 	    
 	</div><!-- /.blog-post -->
 
