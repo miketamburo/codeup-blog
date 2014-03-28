@@ -24,7 +24,7 @@
     <div class="container">
         <nav class="blog-nav">
             <p><h3>
-                <a href="#" type="button" class="blog-nav-item active" >Home</a>||
+                <a href="#" type="button" class="blog-nav-item active" >Home</a>&nbsp;
                 <a href="#" type="button" class="blog-nav-item" >New Features</a>
                 <a href="#" type="button" class="blog-nav-item" >Press</a>
                 <a href="#" type="button" class="blog-nav-item" >About</a>
