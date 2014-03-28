@@ -15,7 +15,7 @@
 </style>
 
 @if (empty($posts->id))
-	// create posts
+	
 	<h2> Create a new post </h2>
 
 	{{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal')) }}

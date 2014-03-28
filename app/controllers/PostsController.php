@@ -9,7 +9,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{	
-		$posts = Post::paginate(3);
+		$posts = Post::orderBy('created_at', 'desc')->paginate(3);
 		return View::make('posts.index')->with(array('posts'=> $posts));
 	}
 
@@ -37,6 +37,7 @@ class PostsController extends \BaseController {
     	// attempt validation
     	if ($validator->fails()){
         	// validation failed, redirect to the post create page with validation errors and old inputs
+    		Session::flash('errorMessage', 'Post could not be created - see form errors');
     		return Redirect::back()->withInput()->withErrors($validator);
     	} else {
         	// validation succeeded, create and save the post
@@ -44,11 +45,9 @@ class PostsController extends \BaseController {
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();
+			Session::flash('successMessage', 'Post created successfully');
 			return Redirect::action('PostsController@index');
     	}
-
-		Log::info(Input::all());
-		//return Redirect::back()->withInput();
 	}
 
 	/**
@@ -91,12 +90,14 @@ class PostsController extends \BaseController {
     	// attempt validation
     	if ($validator->fails()){
         	// validation failed, redirect to the post create page with validation errors and old inputs
+    		Session::flash('errorMessage', 'Post could not be updated - see form errors');
     		return Redirect::back()->withInput()->withErrors($validator);
     	} else {
         	// validation succeeded, create and save the post
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();
+			Session::flash('successMessage', 'Post updated successfully');
 			return Redirect::action('PostsController@index');
     	}
 	}
@@ -108,8 +109,14 @@ class PostsController extends \BaseController {
 	 * @return Response
 	 */
 	public function destroy($id)
-	{
-		Post::findOrFail($id)->delete();
+	{	
+		Post::find($id)->delete();
+			if (!empty($posts->id)){
+				Session::flash('errorMessage', 'Post could not be deleted - please try again.');
+			} else {
+				Session::flash('successMessage', 'Post deleted successfully');	
+			}
+		
 		return Redirect::action('PostsController@index');
 	}
 

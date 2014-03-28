@@ -16,6 +16,15 @@
  
 </head>
 <body>  
+  <style>
+  .alert.alert-danger {
+    margin-top: 50px;
+  }
+  .alert.alert-success{
+    margin-top: 50px;
+  }
+  </style>
+
     <div class="navbar-wrapper">  
       <div class="container">
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -71,7 +80,12 @@
         <!-- End of Navbar features ================-->
       </div>
     </div><!-- End of Navbar Wrapper =================--> 
- 	
+    @if (Session::has('successMessage'))
+        <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
+    @endif
+    @if (Session::has('errorMessage'))
+        <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
+    @endif
     @yield('content')
 
     <footer>
