@@ -78,9 +78,10 @@
         <p><a href="#">&nbsp;Back to top</a></p>
         <p>&nbsp;&copy; 2014 Michael Tamburo All rights reserved.</p>
     </footer>
-    @yield('bottomscript')
+    <link href="/js/jquery.js">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="/css/bootstrap-3.1.1/js/bootstrap.min.js"></script>
     <script src="/css/bootstrap-3.1.1/docs/assets/js/docs.min.js"></script>
+    @yield('bottomscript')
 </body>
 </html>

@@ -22,5 +22,6 @@
 	<div class="col-sm-offset-2 col-sm-10">
 	    <a href="{{{ action('PostsController@create') }}}" type="button" class="btn btn-primary">Create Post</a>
 	</div>
+	{{ $posts->links() }}
 	
 @stop
