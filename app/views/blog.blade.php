@@ -16,17 +16,19 @@
 @section('content')
 <style>
 #main-content {
-    margin-top: 70px;
+    margin-top: 40px;
     margin-left: 10px;
 }
 </style>
 <div class="container" id="main-content">
     <div class="container">
         <nav class="blog-nav">
-            <a class="blog-nav-item active" href="#">Home</a>
-            <a class="blog-nav-item" href="#">New Features</a>
-            <a class="blog-nav-item" href="#">Press</a>
-            <a class="blog-nav-item" href="#">About</a>
+            <p><h3>
+                <a href="#" type="button" class="blog-nav-item active" >Home</a>
+                <a href="#" type="button" class="blog-nav-item" >New Features</a>
+                <a href="#" type="button" class="blog-nav-item" >Press</a>
+                <a href="#" type="button" class="blog-nav-item" >About</a>
+            </h3></p>
         </nav>
     </div>
 
