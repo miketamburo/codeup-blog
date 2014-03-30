@@ -41,7 +41,7 @@
                 <li><a href="{{{action('HomeController@showPortfolio')}}}#skills">Skills</a></li>
                 <li><a href="{{{action('HomeController@showResume')}}}">Resum&#233</a></li>
                 <li><a href="{{{action('HomeController@showPortfolio')}}}#experience">Experience</a></li>
-                <li><a href="{{{action('HomeController@showBlog')}}}">Blog</a></li>
+                <li><a href="{{{action('PostsController@index')}}}">Blog</a></li>
                 <li><a href="{{{action('HomeController@showPortfolio')}}}#contact">Contact</a></li>
               </ul>
 
@@ -88,10 +88,17 @@
     @endif
     @yield('content')
 
-    <footer>
+<nav class="footer">
+  <div>
+    <footer class="footer">
         <p><a href="#">&nbsp;Back to top</a></p>
         <p>&nbsp;&copy; 2014 Michael Tamburo All rights reserved.</p>
     </footer>
+    
+  </div>
+</nav>
+
+
     <link href="/js/jquery.js">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="/css/bootstrap-3.1.1/js/bootstrap.min.js"></script>

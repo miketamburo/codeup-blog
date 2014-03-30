@@ -10,7 +10,7 @@
 @stop
 
 @section('topscript')
-   <link href="css/blog.css" rel="stylesheet"> 
+   
 @stop
 
 @section('content')

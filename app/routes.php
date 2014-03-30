@@ -13,14 +13,12 @@
 
 Route::get('/', 'HomeController@showWelcome'); 
 
-// Route::get('/resume', 'HomeController@showResume');
+Route::get('/resume', 'HomeController@showResume');
 
-// Route::get('/portfolio', 'HomeController@showPortfolio');
+Route::get('/portfolio', 'HomeController@showPortfolio');
 
-// Route::get('/blog', 'HomeController@showBlog');
-
-// Route::resource('posts', 'PostsController');
+Route::resource('posts', 'PostsController');
 
 	
-});
+
 

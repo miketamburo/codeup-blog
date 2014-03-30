@@ -43,6 +43,7 @@
 				  <dd><h4><strong>20+ years in commercial aviation operations and technology</strong></h4></dd>
 				  <br>
 				  <dd><h4><strong>Graduate level adjunct professor of space vehicle design curriculum - Embry-riddle Aeronautical University</strong></h4></dd>
+					<dd><h4><strong><a href="mailto:michael.tamburo@gmail.com"><em>Request a full resume</em></a></strong></h4></dd>
 			</dl>
 		  <hr>
 		</div>
