@@ -13,6 +13,7 @@
 }
 
 </style>
+<div class="col-sm-8 blog-main">
 	<div id="formatSpacer">
 		@foreach ($posts as $post)
 		<div class="blog-post" id="mainContent">
@@ -25,6 +26,7 @@
 		@endforeach
 	</div>
 	
+</div>
 	<div class="col-sm-offset-2 col-sm-10">
 	    <a href="{{{ action('PostsController@create') }}}" type="button" class="btn btn-primary">Create Post</a>
 	</div>

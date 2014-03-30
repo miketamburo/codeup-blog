@@ -47,7 +47,7 @@
 
               <ul class="nav navbar-nav navbar-right">
 		          <li>
-		            <a href="https://github.com/miketamburo/codeup_exercises">
+		            <a href="https://github.com/miketamburo">
 		              <i class="fa fa-github-square fa-2x"></i>
 		            </a>
 		          </li>
