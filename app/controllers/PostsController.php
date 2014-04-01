@@ -60,7 +60,7 @@ class PostsController extends \BaseController {
     	} else {
         	// validation succeeded, create and save the post
     		$post = new Post();
-    		$post->user_id = 1; 
+    		$post->user_id = Auth::user()->id; 
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();
@@ -113,7 +113,7 @@ class PostsController extends \BaseController {
     		return Redirect::back()->withInput()->withErrors($validator);
     	} else {
         	// validation succeeded, create and save the post
-        	$post->user_id = 1; 
+        	$post->user_id = Auth::user()->id; 
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();

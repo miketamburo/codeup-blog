@@ -19,10 +19,10 @@
 <body>  
   <style>
   .alert.alert-danger {
-    margin-top: 50px;
+    margin-top: 15px;
   }
   .alert.alert-success{
-    margin-top: 50px;
+    margin-top: 15px;
   }
 
   .featurette-heading {
@@ -49,7 +49,7 @@
                 <li><a href="{{{action('PostsController@index')}}}">Blog</a></li>
                 <li><a href="{{{action('HomeController@showPortfolio')}}}#contact">Contact</a></li>
                 @if (Auth::check())
-                  <li><a href="{{{ action('HomeController@logout') }}}">Logout</a></li>
+                  <li><a href="{{{ action('HomeController@logout') }}}">Logout ({{{ Auth::user()->email }}})</a></li>
                 @else
                   <li><a href="{{{ action('HomeController@showLogin') }}}">Login</a></li>
                 @endif

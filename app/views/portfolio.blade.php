@@ -161,6 +161,12 @@
             {{ Form::textarea('body', null, array('class' => 'form-control', 'row' => '5')) }}
             {{ Form::submit('Submit Request')}}
             {{ Form::close() }}
+
+            {{ Form::open(array('action' => array('PostsController@index'), 'method' => 'GET')) }}
+                    {{ Form::label('search', 'Blog Search') }}
+                    {{ Form::text('search')}}
+                    {{ Form::submit('Search')}}
+                {{ Form::close() }}
       
         </div>
       </div>

@@ -3,12 +3,12 @@
 @section('content')
 <style>
 	#mainContent {
-		margin-top: 30px;
+		margin-top: 20px;
 		margin-left: 25px;
 	}
 
 	h2 {
-		margin-top:  70px;
+		margin-top:  20px;
 		margin-left: 25px;
 	}
 
