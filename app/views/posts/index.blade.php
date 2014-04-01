@@ -30,7 +30,7 @@
 		<div>
 		    <a href="{{{ action('PostsController@create') }}}" type="button" class="btn btn-primary">Create Post</a>
 		</div>
-		{{ $posts->links() }}
+		{{ $posts->appends(array('search' => Input::get('search')))->links() }}
 		
 		</div>
 
