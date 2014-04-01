@@ -16,7 +16,7 @@
 	<div class="blog-post" id="mainContent">
 	    <h2 class="blog-post-title">{{{$posts->title}}}</h2>
 	    <p class="blog-post-meta">{{{$posts->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}}</p>
-
+	    <p class="blog-post-meta">Written by: {{$posts->user->email}}<p>
 	    <p>{{{$posts->body}}}</p> 
 
 	    {{ Form::open(array('action' => array('PostsController@destroy', $posts->id), 'method' => 'delete', 'id'=> 'formDeletePost')) }}

@@ -13,11 +13,19 @@
 
 Route::get('/', 'HomeController@showWelcome'); 
 
+Route::get('/login', 'HomeController@showLogin');
+
+Route::post('/login', 'HomeController@doLogin');
+
+Route::get('/logout', 'HomeController@logout');
+
+
 Route::get('/resume', 'HomeController@showResume');
 
 Route::get('/portfolio', 'HomeController@showPortfolio');
 
 Route::resource('posts', 'PostsController');
+
 
 // testing code only - will be removed 9/1/14
 // Route::get('post-test', function(){

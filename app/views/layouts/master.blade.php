@@ -9,7 +9,8 @@
 
 	<title>@yield('title')</title>
 
-	<link href="/css/bootstrap-3.1.1/css/bootstrap.min.css" rel="stylesheet" >
+	<link href="/css/bootstrap-3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/signin.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 	@yield('topscript')
@@ -47,6 +48,11 @@
                 <li><a href="{{{action('HomeController@showPortfolio')}}}#experience">Experience</a></li>
                 <li><a href="{{{action('PostsController@index')}}}">Blog</a></li>
                 <li><a href="{{{action('HomeController@showPortfolio')}}}#contact">Contact</a></li>
+                @if (Auth::check())
+                  <li><a href="{{{ action('HomeController@logout') }}}">Logout</a></li>
+                @else
+                  <li><a href="{{{ action('HomeController@showLogin') }}}">Login</a></li>
+                @endif
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
