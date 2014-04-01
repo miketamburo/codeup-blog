@@ -3,7 +3,7 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends BaseModel implements UserInterface, RemindableInterface {
 
 	/**
 	 * The database table used by the model.
@@ -47,6 +47,22 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function getReminderEmail()
 	{
 		return $this->email;
+	}
+
+	/**
+	 * Mutator sets email to lowercase
+	 *
+	 */
+	public function setEmailAttribute($value) {
+    	$this->attributes['email'] = strtolower($value);
+	}
+
+	/**
+	 * Mutator to hash all passwords
+	 *
+	 */
+	public function setPasswordAttribute($value) {
+    	$this->attributes['password'] = Hash::make($value);
 	}
 
 }

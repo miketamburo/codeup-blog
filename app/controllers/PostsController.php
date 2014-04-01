@@ -17,7 +17,15 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{	
-		$posts = Post::orderBy('created_at', 'desc')->paginate(3);
+		$search = Input::get('search');
+		$query = Post::orderBy('created_at', 'desc');
+
+		if (is_null($search)){
+			$posts = $query->paginate(3);	
+		} else {
+			$posts = $query->where('title', 'LIKE', "%{$search}%")->paginate(3);	
+		}
+
 		return View::make('posts.index')->with(array('posts'=> $posts));
 	}
 
@@ -127,5 +135,6 @@ class PostsController extends \BaseController {
 		
 		return Redirect::action('PostsController@index');
 	}
+
 
 }

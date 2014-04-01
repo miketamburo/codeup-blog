@@ -23,6 +23,10 @@
   .alert.alert-success{
     margin-top: 50px;
   }
+
+  .featurette-heading {
+    margin-top: 5px;
+  }
   </style>
 
     <div class="navbar-wrapper">  

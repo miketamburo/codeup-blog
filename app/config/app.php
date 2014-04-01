@@ -40,6 +40,7 @@ return array(
 	*/
 
 	'timezone' => 'UTC',
+	'localTimezone' => 'America/Chicago',
 
 	/*
 	|--------------------------------------------------------------------------

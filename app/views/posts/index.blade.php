@@ -36,8 +36,16 @@
 
 		<div class="col-sm-3 col-sm-offset-1 blog-sidebar" id="formatSpacer">
 	        <div class="sidebar-module sidebar-module-inset">
+
+	        	{{ Form::open(array('action' => array('PostsController@index'), 'method' => 'GET')) }}
+		        	{{ Form::label('search', 'Blog Search') }}
+		        	{{ Form::text('search')}}
+		        	{{ Form::submit('Search')}}
+	        	{{ Form::close() }}
+
+	        	<br>
 	            <h4>About</h4>
-	            <p>This blog is dedicated to the latest news on tech developments.  If you have an idea for an application, new tech info, or a better way of doing things, please create a post.</p>
+	            <p>This blog is dedicated to the latest news on tech developments and my ideas for applications of those developments.  If you have an idea for an application, new tech info, or a better way of doing things, please create a post.</p>
 	        </div>
 	    </div><!-- /.blog-sidebar -->
 	</div><!-- /.row -->
