@@ -154,12 +154,11 @@
         </div>
         <div class="col-md-5">
           <!-- Contact Form ============================= -->
-            {{ Form::open(array('url' => 'foo/bar')) }}
+            {{ Form::open(array()) }}
             {{ Form::label('yourName', 'Your name', array('class' => 'col-sm-5 control-label')) }}
             {{ Form::text('yourName')}}<br>
             {{ Form::label('requestMessage', 'Request Message', array('class' => 'col-sm-5 control-label')) }}
             {{ Form::textarea('body', null, array('class' => 'form-control', 'row' => '5')) }}
-            {{ $errors->has('body') ? $errors->first('body','<span class="help-block"> :message</span>') : ''}}
             {{ Form::submit('Submit Request')}}
             {{ Form::close() }}
       

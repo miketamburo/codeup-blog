@@ -18,7 +18,7 @@ class PostsController extends \BaseController {
 	public function index()
 	{	
 		$search = Input::get('search');
-		$query = Post::orderBy('created_at', 'desc');
+		$query = Post::with('user')->orderBy('created_at', 'desc');
 
 		if (is_null($search)){
 			$posts = $query->paginate(3);	
@@ -60,6 +60,7 @@ class PostsController extends \BaseController {
     	} else {
         	// validation succeeded, create and save the post
     		$post = new Post();
+    		$post->user_id = 1; 
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();
@@ -112,6 +113,7 @@ class PostsController extends \BaseController {
     		return Redirect::back()->withInput()->withErrors($validator);
     	} else {
         	// validation succeeded, create and save the post
+        	$post->user_id = 1; 
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();

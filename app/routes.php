@@ -19,6 +19,18 @@ Route::get('/portfolio', 'HomeController@showPortfolio');
 
 Route::resource('posts', 'PostsController');
 
+// testing code only - will be removed 9/1/14
+// Route::get('post-test', function(){
+// 	// $user = User::first();
+// 	// $post = new Post;
+// 	// $post->user_id= $user->id;
+// 	// $post->title = 'Testing';
+// 	// $post->body = '1,2,3';
+
+// 	$post = Post::first();
+// 	echo $post->user;
+
+
 	
 
 
