@@ -72,4 +72,11 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
     	$this->attributes['password'] = Hash::make($value);
 	}
 
+	// Validation rules
+    public static $rules = array(
+    	'email'     => 'required|max:100',
+    	'password'  =>  'required|max:200|unique:users'
+	);
+	
+
 }
