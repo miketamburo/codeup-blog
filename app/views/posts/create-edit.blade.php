@@ -18,7 +18,7 @@
 	
 	<h2> Create a new post </h2>
 
-	{{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal')) }}
+	{{ Form::open(array('action' => 'PostsController@store', 'class' => 'form-horizontal', 'file' => true, 'enctype' => 'multipart/form-data')) }}
 
 @else
 
@@ -46,6 +46,9 @@
 	    <div class="col-sm-8">
 			{{ Form::textarea('body', null, array('class' => 'form-control', 'row' => '5')) }}
 			{{ $errors->first('body','<span class="help-block"> :message</span>')  }}
+			<br>
+			{{ Form::label('file', 'Upload Image')}}
+			{{ Form::file('file') }}
 	    </div>
 	  </div>
 

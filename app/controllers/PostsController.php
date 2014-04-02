@@ -59,10 +59,22 @@ class PostsController extends \BaseController {
     		return Redirect::back()->withInput()->withErrors($validator);
     	} else {
         	// validation succeeded, create and save the post
+
     		$post = new Post();
     		$post->user_id = Auth::user()->id; 
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
+
+			if (Input::hasFile('file')){
+
+				$file = Input::file('file');
+	    		$destinationPath = 'uploads/';
+	    		$filename = $file->getClientOriginalName();
+	    		$uploadSuccess = Input::file('file')->move($destinationPath, $filename);
+				
+			}
+
+
 			$post->save();
 			Session::flash('successMessage', 'Post created successfully');
 			return Redirect::action('PostsController@index');
