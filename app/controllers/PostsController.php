@@ -65,15 +65,15 @@ class PostsController extends \BaseController {
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 
-			if (Input::hasFile('file')){
+			if (Input::hasFile('image')){
 
-				$file = Input::file('file');
+				$file = Input::file('image');
 	    		$destinationPath = 'uploads/';
-	    		$filename = $file->getClientOriginalName();
-	    		$uploadSuccess = Input::file('file')->move($destinationPath, $filename);
+	    		$filename = str_random(6) . '_' . $file->getClientOriginalName();
+	    		$uploadSuccess = $file->move($destinationPath, $filename);
 				
+				$post->image_path = '/' . $destinationPath . $filename; 
 			}
-
 
 			$post->save();
 			Session::flash('successMessage', 'Post created successfully');
@@ -128,6 +128,20 @@ class PostsController extends \BaseController {
         	$post->user_id = Auth::user()->id; 
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
+
+			if (Input::hasFile('image')){
+
+				$file = Input::file('image');
+	    		$destinationPath = 'uploads/';
+	    		$filename = str_random(6) . '_' . $file->getClientOriginalName();
+	    		$uploadSuccess = $file->move($destinationPath, $filename);
+				$post->image_path = '/' . $destinationPath . $filename; 
+			} elseif (!empty($post->image_path) && (Input::get('delete') == 'delete')) {
+				File::delete(public_path() . $post->image_path);
+				$post->image_path = null;
+			}
+
+
 			$post->save();
 			Session::flash('successMessage', 'Post updated successfully');
 			return Redirect::action('PostsController@index');

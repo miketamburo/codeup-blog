@@ -24,7 +24,7 @@
 
 	<h2> Edit Post </h2>
 
-	{{ Form::model($posts, array('action' => array('PostsController@update', $posts->id), 'method' => 'put', 'class' => 'form-horizontal')) }}
+	{{ Form::model($posts, array('action' => array('PostsController@update', $posts->id), 'method' => 'put', 'class' => 'form-horizontal', 'file' => true, 'enctype' => 'multipart/form-data')) }}
 	
 
 @endif
@@ -47,8 +47,17 @@
 			{{ Form::textarea('body', null, array('class' => 'form-control', 'row' => '5')) }}
 			{{ $errors->first('body','<span class="help-block"> :message</span>')  }}
 			<br>
-			{{ Form::label('file', 'Upload Image')}}
-			{{ Form::file('file') }}
+		@if (!empty($posts->image_path))
+			{{ Form::label('image', 'Update Image')}}
+			{{ Form::file('image') }}
+
+			{{ Form::label('delete', 'Delete image on file?') }}
+			{{ Form::checkbox('delete', 'delete', true); }}
+
+		@else
+			{{ Form::label('image', 'Upload Image')}}
+			{{ Form::file('image') }}
+		@endif
 	    </div>
 	  </div>
 

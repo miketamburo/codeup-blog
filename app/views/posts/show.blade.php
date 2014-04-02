@@ -15,6 +15,9 @@
 
 	<div class="blog-post" id="mainContent">
 	    <h2 class="blog-post-title">{{{$posts->title}}}</h2>
+		    @if (!empty($posts->image_path))
+				<img src="{{{ $posts->image_path }}}" alt="user image">
+			@endif
 	    <p class="blog-post-meta">{{{$posts->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}}</p>
 	    <p class="blog-post-meta">Written by: {{$posts->user->email}}<p>
 	    <p>{{{$posts->body}}}</p> 
