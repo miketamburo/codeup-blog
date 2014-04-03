@@ -76,7 +76,17 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
     public static $rules = array(
     	'email'     => 'required|max:100',
     	'password'  =>  'required|max:200|unique:users'
+    	
 	);
 	
+	// Establish constants for user roles keep in the user table as role_id
+	const ROLE_ADMIN = 1;
+	const ROLE_ADMIN = 2;
+
+	public static $ROLES = array(
+		array(‘id’ => 1, ‘name’ => ‘Admin’),
+		array(‘id’ => 2, ‘name’ =>’Stand’)
+	);
+
 
 }
