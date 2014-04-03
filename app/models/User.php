@@ -4,6 +4,14 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends BaseModel implements UserInterface, RemindableInterface {
+// Establish constants for user roles keep in the user table as role_id
+	const ROLE_ADMIN = 1;
+	const ROLE_STAND = 2;
+
+	public static $ROLES = array(
+		array('id' => 1, 'name' => 'Admin'),
+		array('id' => 2, 'name' =>'Stand')
+	);
 
 	/**
 	 * The database table used by the model.
@@ -75,18 +83,18 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	// Validation rules
     public static $rules = array(
     	'email'     => 'required|max:100',
-    	'password'  =>  'required|max:200|unique:users'
-    	
+    	'password'  =>  'required|max:200|unique:users'	
 	);
 	
-	// Establish constants for user roles keep in the user table as role_id
-	const ROLE_ADMIN = 1;
-	const ROLE_ADMIN = 2;
+	public function isAdmin(){
+		return $this->role_id == self::ROLE_ADMIN;
+	}
+	
+	public function canManagePost($posts){ 
 
-	public static $ROLES = array(
-		array(‘id’ => 1, ‘name’ => ‘Admin’),
-		array(‘id’ => 2, ‘name’ =>’Stand’)
-	);
+		return ($this->isAdmin()) || ($this->id == $posts->user_id);
+	}
+
 
 
 }

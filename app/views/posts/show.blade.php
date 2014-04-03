@@ -30,11 +30,11 @@
 	    {{ Form::open(array('action' => array('PostsController@destroy', $posts->id), 'method' => 'delete', 'id'=> 'formDeletePost')) }}
 	    {{ Form::close() }}
 	    <p> 
-
+	    	@if (Auth::user()->canManagePost($posts))
 		    <a href="{{{ action ('PostsController@edit', $posts->id)}}}" type="button" class="btn btn-primary">Edit this post</a>
 
 		    <a href="#" id="btnDeletePost" type="button" class="btn btn-primary">Delete this post</a>
-
+		    @endif
 		    <a href="{{{ action ('PostsController@index')}}}" type="button" class="btn btn-primary">Return to Index</a>  
 	    </p>
     

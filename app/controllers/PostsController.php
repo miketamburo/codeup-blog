@@ -8,6 +8,9 @@ class PostsController extends \BaseController {
 	    parent::__construct();
 	    // run auth filter before all methods on this controller except index and show
 	    $this->beforeFilter('auth', array('except' => array('index', 'show')));
+	    // run post protect
+		$this->beforeFilter('post.protect', array('only' => array('edit', 'update', 'destroy')));
+
 	}
 
 	/**
