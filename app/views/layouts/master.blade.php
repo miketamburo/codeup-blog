@@ -50,6 +50,7 @@
                 <li><a href="{{{action('HomeController@showPortfolio')}}}#contact">Contact</a></li>
                 @if (Auth::check())
                   <li><a href="{{{ action('HomeController@logout') }}}">Logout ({{{ Auth::user()->email }}})</a></li>
+                  <li><a href="#">My Account</a><li>
                 @else
                   <li><a href="{{{ action('HomeController@showLogin') }}}">Login</a></li>
                 @endif
@@ -61,16 +62,16 @@
 		              <i class="fa fa-github-square fa-2x"></i>
 		            </a>
 		          </li>
-		          <li>
+		         <!--  <li>
 		            <a href="http://www.facebook.com/">
 		              <i class="fa fa-facebook-square fa-2x"></i>
 		            </a>
-		          </li>
-		          <li>
+		          </li> -->
+		          <!-- <li>
 		            <a href="http://www.twitter.com/">
 		              <i class="fa fa-twitter-square fa-2x"></i>
 		            </a>
-		          </li>
+		          </li> -->
 		          <li>
 		            <a href="http://www.linkedin.com/">
 		              <i class="fa fa-linkedin-square fa-2x"></i>
