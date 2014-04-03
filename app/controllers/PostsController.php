@@ -67,12 +67,7 @@ class PostsController extends \BaseController {
 
 			if (Input::hasFile('image')){
 
-				$file = Input::file('image');
-	    		$destinationPath = 'uploads/';
-	    		$filename = str_random(6) . '_' . $file->getClientOriginalName();
-	    		$uploadSuccess = $file->move($destinationPath, $filename);
-				
-				$post->image_path = '/' . $destinationPath . $filename; 
+				$post->assignImage('image_path');
 			}
 
 			$post->save();
@@ -133,11 +128,7 @@ class PostsController extends \BaseController {
 				
 				File::delete(public_path() . $post->image_path);
 
-				$file = Input::file('image');
-	    		$destinationPath = 'uploads/';
-	    		$filename = str_random(6) . '_' . $file->getClientOriginalName();
-	    		$uploadSuccess = $file->move($destinationPath, $filename);
-				$post->image_path = '/' . $destinationPath . $filename; 
+				$post->assignImage('image_path');
 
 			} elseif (!empty($post->image_path) && (Input::get('delete') == 'delete')) {
 
@@ -147,11 +138,7 @@ class PostsController extends \BaseController {
 
 			} elseif (Input::hasFile('image') && (empty($post->image_path)) && (Input::get('delete') != 'delete')) {
 
-				$file = Input::file('image');
-	    		$destinationPath = 'uploads/';
-	    		$filename = str_random(6) . '_' . $file->getClientOriginalName();
-	    		$uploadSuccess = $file->move($destinationPath, $filename);
-				$post->image_path = '/' . $destinationPath . $filename; 
+				$post->assignImage('image_path'); 
 			}
 
 			$post->save();
