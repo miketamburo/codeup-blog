@@ -129,18 +129,30 @@ class PostsController extends \BaseController {
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 
-			if (Input::hasFile('image')){
+			if (Input::hasFile('image') && (!empty($post->image_path))){
+				
+				File::delete(public_path() . $post->image_path);
 
 				$file = Input::file('image');
 	    		$destinationPath = 'uploads/';
 	    		$filename = str_random(6) . '_' . $file->getClientOriginalName();
 	    		$uploadSuccess = $file->move($destinationPath, $filename);
 				$post->image_path = '/' . $destinationPath . $filename; 
+
 			} elseif (!empty($post->image_path) && (Input::get('delete') == 'delete')) {
+
 				File::delete(public_path() . $post->image_path);
 				$post->image_path = null;
-			}
 
+
+			} elseif (Input::hasFile('image') && (empty($post->image_path)) && (Input::get('delete') != 'delete')) {
+
+				$file = Input::file('image');
+	    		$destinationPath = 'uploads/';
+	    		$filename = str_random(6) . '_' . $file->getClientOriginalName();
+	    		$uploadSuccess = $file->move($destinationPath, $filename);
+				$post->image_path = '/' . $destinationPath . $filename; 
+			}
 
 			$post->save();
 			Session::flash('successMessage', 'Post updated successfully');

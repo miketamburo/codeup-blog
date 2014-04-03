@@ -47,6 +47,7 @@
 			{{ Form::textarea('body', null, array('class' => 'form-control', 'row' => '5')) }}
 			{{ $errors->first('body','<span class="help-block"> :message</span>')  }}
 			<br>
+
 		@if (!empty($posts->image_path))
 			{{ Form::label('image', 'Update Image')}}
 			{{ Form::file('image') }}
@@ -58,6 +59,7 @@
 			{{ Form::label('image', 'Upload Image')}}
 			{{ Form::file('image') }}
 		@endif
+		
 	    </div>
 	  </div>
 
