@@ -26,6 +26,9 @@ Route::get('/portfolio', 'HomeController@showPortfolio');
 
 Route::resource('posts', 'PostsController');
 
+Route::get('/register', 'RegisterController@index'); 
+
+Route::post('/register', 'RegisterController@store');
 
 // testing code only - will be removed 9/1/14
 // Route::get('post-test', function(){

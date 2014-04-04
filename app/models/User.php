@@ -13,6 +13,12 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 		array('id' => 2, 'name' =>'Stand')
 	);
 
+// Validation rules
+    public static $rules = array(
+    	'email'     => 'required|max:100',
+    	'password'  =>  'required|max:200|confirmed'	
+	);
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -79,12 +85,6 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	public function setPasswordAttribute($value) {
     	$this->attributes['password'] = Hash::make($value);
 	}
-
-	// Validation rules
-    public static $rules = array(
-    	'email'     => 'required|max:100',
-    	'password'  =>  'required|max:200|unique:users'	
-	);
 	
 	public function isAdmin(){
 		return $this->role_id == self::ROLE_ADMIN;

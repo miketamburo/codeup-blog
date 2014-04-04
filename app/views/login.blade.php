@@ -24,9 +24,13 @@
 		{{ Form::checkbox('remember', 'remember-me', true); }}
 		
 		{{ Form::submit('Sign in', array('class' => 'btn btn-lg btn-primary btn-block'))}}
-		
+		<br>
+		<h2 class="form-signin-heading">Not a member?</h2>
+		<a href="{{{ action('RegisterController@index') }}}" type='button' class='btn btn-lg btn-primary btn-block'>Sign Up</a>
 	  
 	{{ Form::close() }}
+
+
 	
 </div>
 

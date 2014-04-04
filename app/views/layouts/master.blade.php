@@ -50,7 +50,7 @@
                 <li><a href="{{{action('HomeController@showPortfolio')}}}#contact">Contact</a></li>
                 @if (Auth::check())
                   <li><a href="{{{ action('HomeController@logout') }}}">Logout ({{{ Auth::user()->email }}})</a></li>
-                  <li><a href="#">My Account</a><li>
+                  <li><a href="{{{ action('RegisterController@index') }}}">My Account</a><li>
                 @else
                   <li><a href="{{{ action('HomeController@showLogin') }}}">Login</a></li>
                 @endif
