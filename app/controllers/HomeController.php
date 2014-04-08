@@ -36,7 +36,7 @@ class HomeController extends BaseController {
 
 	public function doLogin() {
 		// create the validator
-    	$validator = Validator::make(Input::all(), User::$rules);
+    	$validator = Validator::make(Input::all(), User::$signin_rules);
 
     	// attempt validation
     	if ($validator->fails()){

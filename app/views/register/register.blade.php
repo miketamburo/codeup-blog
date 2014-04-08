@@ -11,17 +11,16 @@
 
 <div class="blog-post" id="mainContent">
 
-@if (Auth::check())
-	
+@if (!Auth::user())  
 
-	<h2> Edit Profile </h2>
+	<h2> Sign Up </h2>
 	{{ Form::open(array('action' => 'RegisterController@store', 'class' => 'form-signin'  )) }}
 
 @else
-	<h2> Sign Up </h2>
+	<h2> Edit Profile </h2>
 
 
-	{{ Form::model($user, array('action' => array('RegisterController@update', $user->id, 'class' => 'form-horizontal', 'method' => 'put' ))) }}
+	{{ Form::model($user, array('action' => array('RegisterController@update', $user->id), 'method' => 'put', 'class' => 'form-horizontal' )) }}
 	
 
 @endif
@@ -37,12 +36,12 @@
 	{{ Form::text('email', null, array('class' => 'form-control', 'placeholder' => 'Email')) }}</p>
 
 	<p>{{ Form::label('password', 'Password') }}
-	{{ Form::text('password', null, array('class' => 'form-control', 'placeholder' => 'Password')) }}</p>
-
+	{{ Form::password('password', array('class' => 'form-control')) }}	
+	
 	<p>{{ Form::label('password_confirmation', 'Confirm Password') }}
-	{{ Form::text('password_confirmation', null, array('class' => 'form-control', 'placeholder' => 'Confirm Password')) }}</p>
-
-	@if (1+1==2)
+	{{ Form::password('password_confirmation', array('class' => 'form-control')) }}
+	
+	@if (!Auth::user())
 	<p>{{ Form::submit('Join', array('class' => 'btn btn-lg btn-primary btn-block'))}}</p>
 
 	@else

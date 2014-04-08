@@ -1,6 +1,6 @@
 <?php
 
-class RegisterController extends \BaseController {
+class RegisterController extends BaseController {
 	
 	/**
 	 * User Setup
@@ -23,7 +23,7 @@ class RegisterController extends \BaseController {
 	{
 		if (Auth::check())
 		{
-			return View::make('register.register')->with(array('edit'=> true));
+			return View::make('register.register')->with(array('user'=> Auth::user()));
 		}
 		return View::make('register.register');
 	}
@@ -48,7 +48,7 @@ class RegisterController extends \BaseController {
 	{
 
 		// create the validator
-    	$validator = Validator::make(Input::all(), User::$rules);
+    	$validator = Validator::make(Input::all(), User::$signup_rules);
 
     	// attempt validation
     	if ($validator->fails()){
@@ -110,17 +110,17 @@ class RegisterController extends \BaseController {
 		$user = User::findOrFail($id);
 	
 		// create the validator
-    	$validator = Validator::make(Input::all(), User::$rules);
+    	$validator = Validator::make(Input::all(), User::$signup_rules);
 
     	// attempt validation
     	if ($validator->fails()){
         	// validation failed, redirect to the post create page with validation errors and old inputs
-    		Session::flash('errorMessage', 'Could not register a new user - see form errors');
+    		Session::flash('errorMessage', 'Could not update user - see form errors');
     		return Redirect::back()->withInput()->withErrors($validator);
     	} else {
         	// validation succeeded, create and save the post
 
-    		$user = new User();
+    		
     		$user->role_id = User::ROLE_STAND;
 			$user->first_name = Input::get('first_name');
 			$user->last_name = Input::get('last_name');
@@ -129,9 +129,9 @@ class RegisterController extends \BaseController {
 
 			// example
 			$user->save();
-			Session::flash('successMessage', 'User created successfully');
+			Session::flash('successMessage', 'User updated successfully');
 			return Redirect::action('HomeController@showLogin');
-			
+			// change the redirect action to your desired page
 		}
 
 	}

@@ -14,9 +14,15 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	);
 
 // Validation rules
-    public static $rules = array(
+    public static $signin_rules = array(
     	'email'     => 'required|max:100',
-    	'password'  =>  'required|max:200|confirmed'		
+    	'password'  =>  'required|max:200'		
+	);
+
+	public static $signup_rules = array(
+    	'email'     => 'required|max:100',
+    	'password'  =>  'required|max:200|confirmed',
+    	'password_confirmation' => 'min:2'		
 	);
 
 	/**
