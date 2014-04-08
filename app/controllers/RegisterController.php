@@ -5,10 +5,14 @@ class RegisterController extends \BaseController {
 	/**
 	 * User Setup
 	 */
-	protected $user;
 
-	public function __construct(User $user){
-		$this->user = $user;
+	public function __construct(){
+		// Include parent constructor
+		parent::__construct();
+
+		// Run an auth filter before all methods except index and show
+		$this->beforeFilter('auth', ['except' => ['index', 'show', 'create', 'store']]);
+		$this->beforeFilter('role', ['only' => ['edit', 'destroy']]);
 	}
 	/**
 	 * Display a listing of the resource.
@@ -19,7 +23,7 @@ class RegisterController extends \BaseController {
 	{
 		if (Auth::check())
 		{
-
+			return View::make('register.register')->with(array('edit'=> true));
 		}
 		return View::make('register.register');
 	}
@@ -31,31 +35,8 @@ class RegisterController extends \BaseController {
 	 */
 	public function create()
 	{
-		// create the validator
-    	$validator = Validator::make(Input::all(), User::$rules);
-
-    	// attempt validation
-    	if ($validator->fails()){
-        	// validation failed, redirect to the post create page with validation errors and old inputs
-    		Session::flash('errorMessage', 'Could not register a new user - see form errors');
-    		return Redirect::back()->withInput()->withErrors($validator);
-    	} else {
-        	// validation succeeded, create and save the post
-
-    		$user = new User();
-    		$user->role_id = User::ROLE_STAND;
-			$user->first_name = Input::get('first_name');
-			$user->last_name = Input::get('last_name');
-			$user->email = Input::get('email');
-			$user->password = Input::get('password');
-
-
-			// example
-			$user->save();
-			Session::flash('successMessage', 'User created successfully');
-			return Redirect::action('HomeController@showLogin');
-			
-		}
+		$user = new User;
+		return View::make('register.register')->with(['user' => $user]);
 	}
 
 	/**
@@ -65,6 +46,7 @@ class RegisterController extends \BaseController {
 	 */
 	public function store()
 	{
+
 		// create the validator
     	$validator = Validator::make(Input::all(), User::$rules);
 
@@ -101,7 +83,8 @@ class RegisterController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$user = User::findOrFail($id);
+		return View::make('register.register')->with('user', $user);
 	}
 
 	/**
@@ -112,7 +95,8 @@ class RegisterController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = User::findOrFail($id);
+		return View::make('register.register')->with('user', $user);
 	}
 
 	/**
@@ -123,7 +107,33 @@ class RegisterController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$user = User::findOrFail($id);
+	
+		// create the validator
+    	$validator = Validator::make(Input::all(), User::$rules);
+
+    	// attempt validation
+    	if ($validator->fails()){
+        	// validation failed, redirect to the post create page with validation errors and old inputs
+    		Session::flash('errorMessage', 'Could not register a new user - see form errors');
+    		return Redirect::back()->withInput()->withErrors($validator);
+    	} else {
+        	// validation succeeded, create and save the post
+
+    		$user = new User();
+    		$user->role_id = User::ROLE_STAND;
+			$user->first_name = Input::get('first_name');
+			$user->last_name = Input::get('last_name');
+			$user->email = Input::get('email');
+			$user->password = Input::get('password');
+
+			// example
+			$user->save();
+			Session::flash('successMessage', 'User created successfully');
+			return Redirect::action('HomeController@showLogin');
+			
+		}
+
 	}
 
 	/**
@@ -134,7 +144,10 @@ class RegisterController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$user = User::findOrFail($id);
+		$user->delete();
+
+		return Redirect::action('RegisterController@index');
 	}
 
 }

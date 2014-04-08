@@ -11,17 +11,17 @@
 
 <div class="blog-post" id="mainContent">
 
-@if (!$edit)
+@if (Auth::check())
 	
-	<h2> Sign Up </h2>
 
+	<h2> Edit Profile </h2>
 	{{ Form::open(array('action' => 'RegisterController@store', 'class' => 'form-signin'  )) }}
 
 @else
+	<h2> Sign Up </h2>
 
-	<h2> Edit Profile </h2>
 
-	{{ Form::model($user, array('action' => array('RegisterController@update', $user()->id), 'method' => 'put', 'class' => 'form-horizontal' )) }}
+	{{ Form::model($user, array('action' => array('RegisterController@update', $user->id, 'class' => 'form-horizontal', 'method' => 'put' ))) }}
 	
 
 @endif
@@ -42,10 +42,12 @@
 	<p>{{ Form::label('password_confirmation', 'Confirm Password') }}
 	{{ Form::text('password_confirmation', null, array('class' => 'form-control', 'placeholder' => 'Confirm Password')) }}</p>
 
-	@if (empty($users->id))
+	@if (1+1==2)
 	<p>{{ Form::submit('Join', array('class' => 'btn btn-lg btn-primary btn-block'))}}</p>
+
 	@else
 	<p>{{ Form::submit('Update', array('class' => 'btn btn-lg btn-primary btn-block'))}}</p>
+
 	@endif
 	{{ Form::close() }}
 	  
